@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="Zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index1.css">
+</head>
+
+<body>
+    <!--    返回顶部方块    -->
+    <div class="return-top"><a href="#top">^</a></div>
+    <!--    头部导航栏    -->
+    <div class="head-nav" id="top">
+        <div class="logo"></div>
+        <div class="heci">
+            <h1>喜&nbsp迎&nbsp二&nbsp十&nbsp大&nbsp,&nbsp奋&nbsp进&nbsp新&nbsp征&nbsp程</h1>
+        </div>
+        <div class="add"></div>
+    </div>
+
+    <!--    主视图部分      -->
+    <div class="out-banner">
+        <div class="banner">
+            <!--    大会开幕及结束     -->
+            <div class="banner-show"></div>
+            <div class="banner-nav">
+                <div class="banner-nav-head">中国共产党第二十次全国代表大会</div>
+                <div class="banner-nav-content">
+                    <div class="content-left">
+                        <div class="big-box"></div>
+                        <div class="small-box">
+                            <div class="img"><img src="../20大素材/banner-show/1.jpg" alt=""></div>
+                            <div class="img"><img src="../20大素材/banner-show/2.jpg" alt=""></div>
+                            <div class="img"><img src="../20大素材/banner-show/3.jpg" alt=""></div>
+                            <div class="img"><img src="../20大素材/banner-show/4.jpg" alt=""></div>
+                            <div class="img"><img src="../20大素材/banner-show/5.jpg" alt=""></div>
+                        </div>
+                        <!-- 函数稍微麻烦，直接写成行内样式-->
+                        <script>
+                            // 获取需要操作的元素
+                            // 左边大图
+                            let big_box = document.querySelector(".big-box");
+                            // 图片集合
+                            let imgs = document.getElementsByClassName("img");
+                            // 定时器
+                            let timer = null;
+                            // 当前图片下标
+                            let index = 0;
+
+                            // 重置函数
+                            function reset() {
+                                for (let i = 0; i < imgs.length; i++) {
+                                    imgs[i].className = "img";
+                                }
+                            }
+                            // 选中函数
+                            function selected() {
+                                reset();
+                                imgs[index].className = "img active";
+                            }
+                            // 轮播函数
+                            function play() {
+                                timer = setInterval(function () {
+                                    selected();
+                                    index++;
+                                    big_box.style.backgroundImage = "url(../20大素材/banner-show/" + index + ".jpg)";
+                                    if (index == 5) {
+                                        index = 0;
+                                    }
+                                }, 1500);
+                            }
+                            // 循环绑定每个小图片的鼠标移动事件
+                            for (let i = 0; i < imgs.length; i++) {
+                                // 鼠标移动到小图片上时触发
+                                imgs[i].onmousemove = function () {
+                                    // 左边大图变成当前的小图片
+                                    big_box.style.backgroundImage = "url(../20大素材/banner-show/" + (i + 1) + ".jpg)";
+                                    // 执行重置函数并关闭定时器
+                                    reset();
+                                    clearInterval(timer);
+                                    // 更新当前图片下标并执行轮播
+                                    index = i + 1;
+                                    if (index == 5) {
+                                        index = 0;
+                                    }
+                                    play();
+                                }
+                            }
+                            // 执行轮播
+                            play();
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!--    大会热点    -->
+            <div class="hot">
+                <div class="hot-left-box">
+                    <div class="hot-nav-left"><a href="../html/大会议程.html" target="_blank">大会热词</a></div>
+                    <div class="hot-nav-left"><a href="./中国这十年.html" target="_blank">中国这十年</a></div>
+                   <div class="hot-nav-left"><a href="../html/党代表风采.html" target="_blank">党代表风采</a></div>
+                    <div class="hot-nav-left"><a href="../html/向着第二个百年奋斗目标前进.html" target="_blank">百年新征程</a></div>
+                     <div class="hot-nav-left"><a href="" target="_blank">图解二十大</a></div>
+                    
+                </div>
+                <div class="hot-center-box">
+                    <div class="center-top">实时热点</div>
+                    <ul>
+                        <li><a href="../html/向着第二个百年奋斗目标前进.html" target="_blank">向着第二个百年奋斗目标，前进！<span>>>>查看详情</span></a>
+                        </li>
+                        <li><a href="../html/创造历史伟业的非凡十年.html" target="_blank">创造历史伟业的非凡十年<span>>>>查看详情</span></a></li>
+                        <li><a href="../html/宇宙苍穹梦.html" target="_blank">宇宙苍穹梦 爱国爱港情<span>>>>查看详情</span></a></li>
+                        <li><a href="../html/刘秀祥.html" target="_blank">刘秀祥---打造大山深处教育高地<span>>>>查看详情</span></a></li>
+                        <li><a href="../html/新时代,我在中国.html" target="_blank">新时代，我在中国<span>>>>查看详情</span></a></li>
+                        <li><a href="../html/中华民族伟大复兴的中国梦.html"
+                                target="_blank">习近平总书记重要讲话:奋力实现中华民族伟大复兴的中国梦<span>>>>查看详情</span></a></li>
+                        <li><a href="../html/为全面建设社会主义现代化国家团结奋斗.html"
+                                target="_blank">为全面建设社会主义现代化国家团结奋斗<span>>>>查看详情</span></a></li>
+                        <li><a href="../html/新时代十年伟大变革具有里程碑意义.html"
+                                target="_blank">新时代十年伟大变革具有里程碑意义<span>>>>查看详情</span></a></li>
+                    </ul>
+                </div>
+                <div class="hot-right">
+                    <div class="zhezhao"><a href="http://www.gov.cn/xinwen/fabu/index.htm">新闻发布中心</a></div>
+                    <img src="../20大素材/新闻中心.png" alt="">
+                </div>
+            </div>
+            <br>
+            <br>
+            <!--    首页图片区     -->
+            <div class="index-photo">
+                <div class="banner-left">
+                    <div class="left-box">
+                        <div class="out-div out-front"><img src="../20大素材/相册/01.png" alt=""></div>
+                        <div class="out-div out-back"><img src="../20大素材/相册/02.png" alt=""></div>
+                        <div class="out-div out-left"><img src="../20大素材/相册/03.png" alt=""></div>
+                        <div class="out-div out-right"><img src="../20大素材/相册/04.png" alt=""></div>
+                        <div class="out-div out-top"><img src="../20大素材/相册/05.png" alt=""></div>
+                        <div class="out-div out-bottom"><img src="../20大素材/相册/06.png" alt=""></div>
+                        <div class="in-div in-front"><img src="../20大素材/相册/01.png" alt=""></div>
+                        <div class="in-div in-back"><img src="../20大素材/相册/02.png" alt=""></div>
+                        <div class="in-div in-left"><img src="../20大素材/相册/03.png" alt=""></div>
+                        <div class="in-div in-right"><img src="../20大素材/相册/04.png" alt=""></div>
+                        <div class="in-div in-top"><img src="../20大素材/相册/05.png" alt=""></div>
+                        <div class="in-div in-bottom"><img src="../20大素材/相册/06.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--    页尾部分    -->
+        <div class="under">
+            <div class="under-center">
+                <div class="right-logo"><img src="../20大素材/logo.png" alt=""></div>
+                <div class="author">
+                    <p>网站负责人</p>
+                    <p>曾祥军</p>
+                    <p>蔡奇</p>
+                    <p>陈佳伟</p>
+                </div>
+                <div class="web">
+                    <p>相关链接</p>
+                    <a href="https://www.gmw.cn/">光明网</a>
+                    <a href="http://www.gov.cn/zhuanti/zggcddescqgdbdh/index.htm">中国政府网</a>
+                    <a href="http://www.people.com.cn/">人民日报</a>
+                    <a href="http://www.xinhuanet.com/">新华社</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
